@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1559289179927.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "C87813DF",
+    "lastKnownWriteTime" : 1559357310,
+    "last_content_update" : 1559357310326,
+    "path" : "~/src/bookclub/chapter3/slides.Rmd",
+    "project_path" : "slides.Rmd",
+    "properties" : {
+        "cursorPosition" : "4,20",
+        "docOutlineVisible" : "0",
+        "last_setup_crc32" : "",
+        "scrollLine" : "0",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

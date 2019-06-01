@@ -1,0 +1,194 @@
+---
+title: "Chapter 3"
+subtitle: "Make a plot"
+author: "Sylvain Dorey"
+institute: "www.geoquants.com"
+output:
+  xaringan::moon_reader:
+    css: ['assets/styles.css', "default"]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+class:  left
+
+# (0) What is ggplot2 !?
+
+* One of multiple graph libraries for R (R Base, Lattice, ggplot2 ...)
+* The one considered the best 
+* There was a ggplot1 and its successor is the current ggplot2
+* package name is ggplot2 but main function inside is called ggplot()
+
+<div class="my-footer"><span> Sylvain Dorey - http://www.geoquants.com</span></div> 
+
+---
+class:  left
+
+
+# 3.1 How ggplot works
+
+To create a graph, we need 3 things:
+
+1. data
+2. a type of graph
+3. a way to map the structure of the data to the structure of the graph
+
+We need to provide those three elements to create a graph with ggplot, in ggplot "words", they are:
+
+1. data 
+2. geom_XXX (geom_bar, geom_point)
+3. aesthetics mapping (or just aesthetics)
+
+
+
+We need to give those elements to the function ggplot(), some of them go between the parenthesis, some of them are added with +.
+
+---
+class: left
+# 3.2 Tidy data
+Long Format
+
+![](assets/long.png)
+
+Wide Format
+
+![](assets/wide.png)
+
+
+---
+class: center middle
+
+![](assets/robot.png)
+
+---
+class: left
+# 3.3 Mappings link data to things you see
+
+The recipe to do a graph:
+
+1. Put data in a format ggplot can handle (data-frame)
+2. Call the ggplot() function and store the result in a variable (we can call it p)
+3. Extend p with + by providing the type of plot we want (+ geom_xxx)
+4. Extend p with other elements (title, scale, labels ...)
+
+---
+class: left
+
+Put in action
+
+1. Put data in a format ggplot can handle (data-frame)
+
+
+```{r}
+library(ggplot2)
+library(gapminder)
+gapminder
+```
+
+---
+class: left
+2- Call the ggplot() function and store the result in a variable (we can call it p)
+
+```{r}
+p <- ggplot(data = gapminder,
+            mapping = aes(x = gdpPercap,
+                          y = lifeExp))
+p
+```
+
+---
+class: left
+3- Extend p with + by providing the type of plot we want (+ geom_xxx)
+
+```{r}
+p + geom_point() 
+p
+```
+
+---
+class: left
+4- Extend p with other elements (title, scale, labels ...)
+
+(Later in the book ...)
+
+
+---
+class: left
+###Back to 2: what does it mean ?
+gapminder is a dataframe. I can access one column by using: gapminder$lifeExp
+
+
+In the background, the function ggplot will do the same, take the datframe provided in data and the column name provided in aes() to put them together.
+
+![](assets/formula.png)
+
+
+---
+class: left
+# 3.4 Build your plots layer by layer
+
+We did a lot, but now it will always be the same:
+
+![](assets/summary.png)
+
+Now we just learn about the different geom_XXX, additional functionalities ...
+
+
+---
+class: left
+
+Remember we did that
+```{r}
+p <- ggplot(data = gapminder,
+            mapping = aes(x = gdpPercap,
+                          y=lifeExp))
+p + geom_point()
+```
+
+---
+class: left
+
+We change geom_point to geom_smooth
+```{r}
+p <- ggplot(data = gapminder,
+            mapping = aes(x = gdpPercap,
+                          y=lifeExp))
+p + geom_smooth()
+```
+
+---
+class: left
+
+Or put them together
+```{r}
+p <- ggplot(data = gapminder,
+            mapping = aes(x = gdpPercap,
+                          y=lifeExp))
+p + geom_point() + geom_smooth()
+```
+---
+class: left
+
+Change the scale of the x_axis with the function scale_x_log10
+```{r}
+p <- ggplot(data = gapminder,
+            mapping = aes(x = gdpPercap,
+                          y=lifeExp))
+p + geom_point() + geom_smooth() + scale_x_log10()
+```
+---
+
+
+background-image: url(assets/owl.png)
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+
+
+---
+

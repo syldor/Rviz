@@ -1,0 +1,9 @@
+{
+    "path" : "~/src/bookclub/chapter3",
+    "sortOrder" : [
+        {
+            "ascending" : true,
+            "columnIndex" : 2
+        }
+    ]
+}
